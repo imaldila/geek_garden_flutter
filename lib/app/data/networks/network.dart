@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 class Network {
   static Dio createDio() {
-    const String baseUrl = 'https://fakestoreapi.com/products';
+    const String baseUrl = 'https://fakestoreapi.com';
     final options = BaseOptions(
       baseUrl: baseUrl,
       responseType: ResponseType.plain,
