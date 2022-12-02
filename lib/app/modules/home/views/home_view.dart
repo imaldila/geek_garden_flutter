@@ -28,14 +28,28 @@ class HomeView extends GetView<HomeController> {
           child: Column(
             children: [
               GetX<HomeController>(
-                builder: (_) => ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: _.products.length,
-                  itemBuilder: (context, index) => ProductCard(
-                    product: _.products[index],
-                  ),
-                ),
+                builder: (_) {
+                  if (_.isFetching.isTrue) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+
+                  if (_.products.isNotEmpty) {
+                    return ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: _.products.length,
+                      itemBuilder: (context, index) => ProductCard(
+                        product: _.products[index],
+                      ),
+                    );
+                  } else {
+                    return const Center(
+                      child: Text('No Data'),
+                    );
+                  }
+                },
               )
             ],
           ),

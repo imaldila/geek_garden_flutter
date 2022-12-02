@@ -42,7 +42,7 @@ class ProductCard extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.all(4),
+                  margin: const EdgeInsets.all(8),
                   padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
@@ -53,7 +53,7 @@ class ProductCard extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .headline5!
-                        .copyWith(fontSize: 12, fontWeight: FontWeight.bold),
+                        .copyWith(fontSize: 14, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
@@ -75,7 +75,7 @@ class ProductCard extends StatelessWidget {
                               .textTheme
                               .headline5!
                               .copyWith(
-                                  fontSize: 12, fontWeight: FontWeight.bold),
+                                  fontSize: 14, fontWeight: FontWeight.bold),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),

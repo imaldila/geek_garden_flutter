@@ -26,6 +26,7 @@ class FormProductView extends GetView<FormProductController> {
               const SizedBox(height: 8),
               RTextFormField(
                 controller: controller.priceController,
+                keyboardType: TextInputType.number,
                 label: 'Price',
               ),
               const SizedBox(height: 8),
@@ -37,6 +38,7 @@ class FormProductView extends GetView<FormProductController> {
               RTextFormField(
                 controller: controller.categoryController,
                 label: 'Category',
+                textInputAction: TextInputAction.done,
               ),
               const SizedBox(height: 8),
               ElevatedButton(
