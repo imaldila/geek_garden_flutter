@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geek_garden_flutter/app/modules/home/controllers/home_controller.dart';
 import 'package:get/get.dart';
 
-import '../../../data/models/product.dart';
+import '../../../../data/models/product.dart';
 
 class FormProductController extends GetxController {
   late TextEditingController titleController;

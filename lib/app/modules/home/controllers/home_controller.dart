@@ -10,6 +10,8 @@ class HomeController extends GetxController {
 
   RxList<Product> products = <Product>[].obs;
 
+  RxInt selectedIndex = 0.obs;
+
   @override
   void onInit() {
     getProduct();
@@ -32,5 +34,10 @@ class HomeController extends GetxController {
     products.removeAt(index);
     update();
     Get.back();
+  }
+
+  void selectIndex(int index) {
+    selectedIndex.value = index;
+    update();
   }
 }

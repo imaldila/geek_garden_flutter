@@ -3,16 +3,18 @@ import 'package:flutter/material.dart';
 class RTextFormField extends StatelessWidget {
   const RTextFormField({
     Key? key,
-    required this.controller,
+    this.controller,
     required this.label,
     this.textInputAction,
     this.keyboardType,
+    this.initialValue,
   }) : super(key: key);
 
   final TextEditingController? controller;
   final String label;
   final TextInputAction? textInputAction;
   final TextInputType? keyboardType;
+  final String? initialValue;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +22,7 @@ class RTextFormField extends StatelessWidget {
       controller: controller,
       textInputAction: textInputAction ?? TextInputAction.next,
       keyboardType: keyboardType ?? TextInputType.text,
+      initialValue: initialValue,
       decoration: InputDecoration(
         label: Text(label),
         labelStyle: const TextStyle(fontSize: 12, color: Colors.blueAccent),

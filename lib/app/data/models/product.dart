@@ -15,13 +15,13 @@ class Product {
         this.rating,
     });
 
-    final int? id;
-    final String? title;
-    final double? price;
-    final String? description;
-    final String? category;
-    final String? image;
-    final Rating? rating;
+ int? id;
+ String? title;
+ double? price;
+ String? description;
+ String? category;
+ String? image;
+ Rating? rating;
 
     factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json["id"],

@@ -4,13 +4,13 @@ part of 'app_pages.dart';
 abstract class Routes {
   Routes._();
   static const home = _Paths.home;
-  static const product = _Paths.product;
   static const formProduct = _Paths.formProduct;
+  static const editProduct = _Paths.editProduct;
 }
 
 abstract class _Paths {
   _Paths._();
   static const home = '/home';
-  static const product = '/product';
   static const formProduct = '/form-product';
+  static const editProduct = '/edit-product';
 }

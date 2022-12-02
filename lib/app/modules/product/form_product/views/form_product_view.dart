@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/form_product_controller.dart';
-import 'components/rtextform_field.dart';
+import '../../../../widgets/rtextform_field.dart';
 
 class FormProductView extends GetView<FormProductController> {
   const FormProductView({super.key});

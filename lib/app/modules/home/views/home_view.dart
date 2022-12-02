@@ -22,53 +22,55 @@ class HomeView extends GetView<HomeController> {
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              GetX<HomeController>(
-                builder: (_) {
-                  if (_.isFetching.isTrue) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
+      body: GetX<HomeController>(
+        builder: (_) {
+          if (_.isFetching.isTrue) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
 
-                  if (_.products.isNotEmpty) {
-                    return ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: _.products.length,
-                      itemBuilder: (context, index) => InkWell(
-                        onLongPress: () => Get.defaultDialog(
-                          title: 'Delete Product',
-                          middleText: 'Are You Sure ?',
-                          cancel: ElevatedButton(
-                            onPressed: () => Get.back(),
-                            child: const Text('No'),
-                          ),
-                          confirm: ElevatedButton(
-                            onPressed: () => _.deleteProduct(index),
-                            child: const Text('YES'),
-                          ),
-                        ),
-                        // onTap: () => _.deleteProduct(index),
-                        child: ProductCard(
-                          product: _.products[index],
-                        ),
+          if (_.products.isNotEmpty) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: _.products.length,
+                itemBuilder: (context, index) {
+                  var products = _.products[index];
+                  return InkWell(
+                    onLongPress: () => Get.defaultDialog(
+                      title: 'Delete Product',
+                      middleText: 'Are You Sure ?',
+                      cancel: ElevatedButton(
+                        onPressed: () => Get.back(),
+                        child: const Text('No'),
                       ),
-                    );
-                  } else {
-                    return const Center(
-                      child: Text('No Data'),
-                    );
-                  }
+                      confirm: ElevatedButton(
+                        onPressed: () => _.deleteProduct(index),
+                        child: const Text('YES'),
+                      ),
+                    ),
+                    onTap: () {
+                      Get.toNamed(
+                        Routes.editProduct,
+                        arguments: products,
+                      );
+                      _.selectIndex(index);
+                    },
+                    child: ProductCard(
+                      product: products,
+                    ),
+                  );
                 },
-              )
-            ],
-          ),
-        ),
+              ),
+            );
+          } else {
+            return const Center(
+              child: Text('No Data'),
+            );
+          }
+        },
       ),
     );
   }
