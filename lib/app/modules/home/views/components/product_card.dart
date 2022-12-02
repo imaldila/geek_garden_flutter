@@ -97,8 +97,9 @@ class ProductCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         const Icon(
-                          Icons.star,
+                          Icons.star_rate,
                           size: 16,
+                          color: Colors.yellow,
                         ),
                         const SizedBox(width: 8),
                         Text('${product.rating?.rate ?? '4.1'}')

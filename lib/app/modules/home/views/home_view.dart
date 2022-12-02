@@ -40,8 +40,23 @@ class HomeView extends GetView<HomeController> {
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: _.products.length,
-                      itemBuilder: (context, index) => ProductCard(
-                        product: _.products[index],
+                      itemBuilder: (context, index) => InkWell(
+                        onLongPress: () => Get.defaultDialog(
+                          title: 'Delete Product',
+                          middleText: 'Are You Sure ?',
+                          cancel: ElevatedButton(
+                            onPressed: () => Get.back(),
+                            child: const Text('No'),
+                          ),
+                          confirm: ElevatedButton(
+                            onPressed: () => _.deleteProduct(index),
+                            child: const Text('YES'),
+                          ),
+                        ),
+                        // onTap: () => _.deleteProduct(index),
+                        child: ProductCard(
+                          product: _.products[index],
+                        ),
                       ),
                     );
                   } else {

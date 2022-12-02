@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:geek_garden_flutter/app/data/services/product_repository.dart';
 import 'package:geek_garden_flutter/app/data/services/product_service.dart';
 import 'package:get/get.dart';
@@ -27,5 +26,11 @@ class HomeController extends GetxController {
     } catch (e) {
       Get.snackbar('Error', e.toString());
     }
+  }
+
+  void deleteProduct(int index) {
+    products.removeAt(index);
+    update();
+    Get.back();
   }
 }
